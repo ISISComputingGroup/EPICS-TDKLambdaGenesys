@@ -1,0 +1,13 @@
+Terminator = '\r\n';
+ReplyTimeout = 2000;
+
+remote    { out "RMT 1";                         }
+reset     { out "RST";                           }
+voltsp    { out "PV \$1";                        }
+voltsprbv { out "PV?";           in "%d";        }
+volt      { out "MV?";           in "%d";        }
+currsp    { out "PC \$1";                        }
+currsprbv { out "PC?";           in "%d";        }
+curr      { out "MC?";                           }
+powersp   { out "OUT %{OFF|ON}";                 }
+power     { out "OUT?";          in "%{OFF|ON}"; }

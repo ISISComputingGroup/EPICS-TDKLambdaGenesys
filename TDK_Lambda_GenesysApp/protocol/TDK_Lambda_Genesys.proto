@@ -1,14 +1,76 @@
 Terminator = '\r';
 ReplyTimeout = 2000;
 
-remote    { out "RMT 1";                         }
-reset     { out "RST";                           }
-voltsp    { out "PV %f";                         }
-voltsprbv { out "PV?";           in "%f";        }
-volt      { out "MV?";           in "%f";        }
-currsp    { out "PC %f";                         }
-currsprbv { out "PC?";           in "%f";        }
-curr      { out "MC?";           in "%f";        }
-powersp   { out "OUT %{OFF|ON}";                 }
-power     { out "OUT?";          in "%{OFF|ON}"; }
-address   { out "ADR %f";                        }
+address {
+  out "ADR %f";
+}
+
+remote { 
+  out "RMT 1";
+}
+
+reset { 
+  out "RST";
+}
+
+voltsp { 
+  out "PV %f";
+}
+
+voltsprbv {
+  out "PV?";
+  in "%f";
+  
+  @replytimeout {
+    out "ADR %(\$1)f";
+    remote;
+  }
+}
+
+volt { 
+  out "MV?";
+  in "%f";
+  
+  @replytimeout {
+    out "ADR %(\$1)f";
+    remote;
+  }
+}
+
+currsp { 
+  out "PC %f";
+}
+
+currsprbv { 
+  out "PC?";
+  in "%f";
+  
+  @replytimeout {
+    out "ADR %(\$1)f";
+    remote;
+  }
+}
+
+curr { 
+  out "MC?";
+  in "%f";
+  
+  @replytimeout {
+    out "ADR %(\$1)f";
+    remote;
+  }
+}
+
+powersp { 
+  out "OUT %{OFF|ON}";
+}
+
+power { 
+  out "OUT?";
+  in "%{OFF|ON}";
+  
+  @replytimeout {
+    out "ADR %(\$1)f";
+    remote;
+  }
+}

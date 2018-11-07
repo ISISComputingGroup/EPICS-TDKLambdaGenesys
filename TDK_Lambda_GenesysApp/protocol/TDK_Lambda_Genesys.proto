@@ -2,7 +2,7 @@ Terminator = '\r';
 ReplyTimeout = 2000;
 
 address {
-  out "ADR %f";
+  out "ADR %i";
 }
 
 remote { 

@@ -22,7 +22,7 @@ voltsprbv {
   in "%f";
   
   @replytimeout {
-    out "ADR %(\$1)f";
+    out "ADR %(\$1)i";
     remote;
   }
 }
@@ -32,7 +32,7 @@ volt {
   in "%f";
   
   @replytimeout {
-    out "ADR %(\$1)f";
+    out "ADR %(\$1)i";
     remote;
   }
 }
@@ -46,7 +46,7 @@ currsprbv {
   in "%f";
   
   @replytimeout {
-    out "ADR %(\$1)f";
+    out "ADR %(\$1)i";
     remote;
   }
 }
@@ -56,7 +56,7 @@ curr {
   in "%f";
   
   @replytimeout {
-    out "ADR %(\$1)f";
+    out "ADR %(\$1)i";
     remote;
   }
 }
@@ -70,7 +70,7 @@ power {
   in "%{OFF|ON}";
   
   @replytimeout {
-    out "ADR %(\$1)f";
+    out "ADR %(\$1)i";
     remote;
   }
 }
